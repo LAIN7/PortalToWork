@@ -7,7 +7,7 @@ test_api:
   variables:
     POSTGRES_PASSWORD: MyPassword01
     POSTGRES_USER: postgres
-    POSTGRES_DB: buttinski_api
+    POSTGRES_DB: portal_to_work
     CELERY_BROKER_URL: redis://localhost:6379/0
   only:
     - dev
@@ -35,4 +35,4 @@ production:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=buttinski --api-key=$HEROKU_PRODUCTION_API_KEY
+    - dpl --provider=heroku --app=portaltowork --api-key=$HEROKU_PRODUCTION_API_KEY
