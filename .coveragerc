@@ -1,0 +1,5 @@
+[run]
+include = portal_to_work/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
