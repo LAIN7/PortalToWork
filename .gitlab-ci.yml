@@ -1,0 +1,38 @@
+stages:
+  - test
+  - deploy
+
+test_api:
+  image: python:3.7-stretch
+  variables:
+    POSTGRES_PASSWORD: MyPassword01
+    POSTGRES_USER: postgres
+    POSTGRES_DB: buttinski_api
+    CELERY_BROKER_URL: redis://localhost:6379/0
+  only:
+    - dev
+    - web
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - ~/.cache/pip/
+  services:
+    - postgres:11.4
+  stage: test
+  script:
+    - export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$POSTGRES_DB
+    - pip3 install -r requirements/local.txt
+    - coverage run -m pytest
+    - coverage report -m
+
+production:
+  only:
+    - tags
+    - web
+    - master
+  stage: deploy
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=buttinski --api-key=$HEROKU_PRODUCTION_API_KEY
