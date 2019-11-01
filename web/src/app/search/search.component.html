@@ -1,13 +1,29 @@
-<div style='border: 1px solid black'>
-    <p>search works!</p>
-    <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Favorite food">
+<div style='border: 1px solid black;'>
+    <form class="userLocation">
+        <mat-form-field class="locationInput">
+          <input matInput placeholder="Street Address">
         </mat-form-field>
       
-        <mat-form-field class="example-full-width">
-            <input matInput placeholder="Your Address">
+        <mat-form-field class="locationInput">
+            <input matInput placeholder="Line 2">
         </mat-form-field>
+
+        <mat-form-field class="locationInput">
+            <input matInput placeholder="City">
+        </mat-form-field>
+
+        <mat-form-field class="locationInput">
+            <input matInput placeholder="State">
+        </mat-form-field>
+
+        <mat-form-field class="locationInput">
+            <input matInput placeholder="Postal Code">
+        </mat-form-field>
+        <div style='text-align: center;'> 
+            <button mat-button class="locationButton">Use This Address</button>
+        </div>
+       
+
       </form>
       
 </div>
