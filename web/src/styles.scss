@@ -1,4 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+$mid-blue:#75c0eb;
+$dark-blue:#4979ad;
+$white:#FFF;
+$green:#a1cb62;
+
+.mat-toolbar{
+    background-color:$dark-blue;
+    color:$white;
+}
+.mat-form-field{
+    background-color:$white;
+    color:red;
+}
+.locationInput{
+    color:$mid-blue;
+}
