@@ -8,11 +8,14 @@ import { SearchComponent } from './search/search.component';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule } from '@angular/material';
 import { DetailComponent } from './detail/detail.component';
 import { AgmCoreModule } from '@agm/core';
+import { ResultsComponent } from './results/results.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    DetailComponent
+    DetailComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

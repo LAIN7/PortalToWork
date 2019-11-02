@@ -2,7 +2,7 @@
     <form class="userLocation">
         <div style='text-align: center;'> 
             <p>Set Location for Job Search</p>
-            <button mat-button class="locationButton">Use My Current Location</button>
+            <button mat-button class="locationButton" [routerLink]="['/results']">Use My Current Location</button>
             <p> OR </p>
         </div>
         <mat-form-field class="locationInput">
@@ -25,7 +25,7 @@
             <input matInput placeholder="Postal Code">
         </mat-form-field>
         <div style='text-align: center;'> 
-            <button mat-button class="locationButton">Use This Address</button>
+            <button mat-button class="locationButton" [routerLink]="['/results']">Use This Address</button>
         </div>
        
 
