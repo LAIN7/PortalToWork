@@ -21,6 +21,8 @@ export interface Job{
     fake: number;
     created_at: string;
     updated_at: string;
+    description:string;
+    req_education:string;
 }
 
 export interface Locations {

@@ -11,7 +11,7 @@ import { LocationService } from '../location.service';
 })
 export class DetailComponent implements OnInit {
   job: Job;
-
+  showMap: boolean = false;
   origin: any;
   destination = 'efactory';
   
@@ -35,9 +35,11 @@ export class DetailComponent implements OnInit {
 
     if (this.job.locations.data.length > 0) {
       this.destination = `${this.job.locations.data[0].street}, ${this.job.locations.data[0].city}, ${this.job.locations.data[0].state} ${this.job.locations.data[0].zipcode}`;
+      this.showMap = true;
     }
   }
-
+  //description:string;
+  //description= this.job.description.toString;
   toggleDescription() {
     this.hideDescription = !this.hideDescription;
   }
