@@ -22,7 +22,6 @@ export class DetailComponent implements OnInit {
       this.jobService.getJobs().subscribe(jobs => {
         const foundJobs = jobs.data.filter(x=>x.id == params.id)
         this.job = foundJobs[0];
-        console.log('found: ', foundJobs);
       });
     })
   }

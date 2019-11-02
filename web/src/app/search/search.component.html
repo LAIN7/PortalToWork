@@ -1,39 +1,32 @@
-<div class="container">
-    <div *ngIf="loading">
-        <img src="assets/workforce-2019-logo-mo-jobs-white.png" />
-        <mat-spinner></mat-spinner>
+<form class="userLocation" *ngIf="!loading">
+    <div> 
+        <p>Set Location for Job Search</p>
+        <button mat-raised-button color="primary" [routerLink]="['/results']">Use My Current Location</button>
     </div>
-    <form class="userLocation" *ngIf="!loading">
-        <div> 
-            <p>Set Location for Job Search</p>
-            <button mat-raised-button color="primary" [routerLink]="['/results']">Use My Current Location</button>
-        </div>
-        <p> OR </p>
-        <mat-form-field class="locationInput">
-          <input matInput placeholder="Street Address">
-        </mat-form-field>
-      
-        <mat-form-field class="locationInput">
-            <input matInput placeholder="Line 2">
-        </mat-form-field>
+    <p> OR </p>
+    <mat-form-field class="locationInput">
+        <input matInput placeholder="Street Address">
+    </mat-form-field>
+    
+    <mat-form-field class="locationInput">
+        <input matInput placeholder="Line 2">
+    </mat-form-field>
 
-        <mat-form-field class="locationInput">
-            <input matInput placeholder="City">
-        </mat-form-field>
+    <mat-form-field class="locationInput">
+        <input matInput placeholder="City">
+    </mat-form-field>
 
-        <mat-form-field class="locationInput">
-            <input matInput placeholder="State">
-        </mat-form-field>
+    <mat-form-field class="locationInput">
+        <input matInput placeholder="State">
+    </mat-form-field>
 
-        <mat-form-field class="locationInput">
-            <input matInput placeholder="Postal Code">
-        </mat-form-field>
+    <mat-form-field class="locationInput">
+        <input matInput placeholder="Postal Code">
+    </mat-form-field>
 
-        <div> 
-            <button mat-raised-button color="primary" [routerLink]="['/results']">Use This Address</button>
-        </div>
-       
+    <div> 
+        <button mat-raised-button color="primary" [routerLink]="['/results']">Use This Address</button>
+    </div>
+    
 
-      </form>
-      
-</div>
+    </form>

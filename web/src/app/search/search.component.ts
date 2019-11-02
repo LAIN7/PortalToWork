@@ -7,14 +7,9 @@ import { JobsService } from '../jobs.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  loading=true;
   constructor(private jobService: JobsService) { }
 
   ngOnInit() {
-    this.loading = true;
-    this.jobService.getJobs().subscribe((jobs) => {
-      this.loading = false;
-    });
   }
 
 }
