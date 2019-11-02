@@ -4,12 +4,12 @@
 
     <div class="headerInfo">
             <h1>
-                Job Title
+                {{job?.title}}
                 <button mat-raised-button color="primary">
-                    <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+                    <mat-icon aria-hidden="false" aria-label="add to favorites">favorite</mat-icon>
                 </button>
             </h1>
-            <h4>Employeer/Company</h4>
+            <h4>{{job?.employer?.name}}</h4>
     </div>
 
     <div class="jobDesc">
@@ -31,8 +31,8 @@
     </div>
 
     <div>
-        <p>Salary:</p>
-        <p>Job Type: </p>
+        <p>Salary: {{job?.pay_rate}}</p>
+        <p>Job Type: {{job?.employer?.category}}</p>
         <p>Minimum Education:</p>
     </div>
 

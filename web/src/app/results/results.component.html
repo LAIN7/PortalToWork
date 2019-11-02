@@ -2,7 +2,7 @@
     <h2>{{curLocation}}</h2>
     <div>
         <mat-spinner *ngIf="loading"></mat-spinner>
-            <mat-card *ngFor="let result of results">
+        <mat-card *ngFor="let result of results" [routerLink]="['/detail', result.id]">
             <h5>{{result.title}} <span>{{result.date_expires}}</span></h5>
             <span class="location" *ngFor="let location of result.locations.data">
                 {{location.name}}
