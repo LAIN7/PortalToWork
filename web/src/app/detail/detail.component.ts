@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { JobsService } from '../jobs.service';
 import { Job } from '../models/job';
+import { LocationService } from '../location.service';
 
 @Component({
   selector: 'app-detail',
@@ -9,16 +10,15 @@ import { Job } from '../models/job';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  lat = 37.2119519;
-  lng = -93.290407;
-
   job: Job;
 
-  origin = 'civil kitchen';
+  origin: any;
   destination = 'efactory';
   
   hideDescription = true;
-  constructor(private route: ActivatedRoute, private jobService:JobsService) { }
+  constructor(private route: ActivatedRoute,
+    private jobService: JobsService,
+    private locationService: LocationService) { }
 
   ngOnInit() {
     window.scroll(0,0);
@@ -28,6 +28,12 @@ export class DetailComponent implements OnInit {
         this.job = foundJobs[0];
       });
     })
+
+    this.locationService.getLocation((position) => {
+      this.origin = { "lat": position.coords.latitude, "lng": position.coords.longitude };
+    });
+
+    this.destination = `${this.job.locations.data[0].street}, ${this.job.locations.data[0].city}, ${this.job.locations.data[0].state} ${this.job.locations.data[0].zipcode}`;
   }
 
   toggleDescription() {
