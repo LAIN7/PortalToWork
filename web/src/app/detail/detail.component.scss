@@ -1,0 +1,16 @@
+.container {
+    padding: 10px;
+}
+h1 {
+    width: 100%;
+    button {
+        float: right;
+        margin-right: 20px;
+    }
+}
+
+.clearfix::after{
+    content: "";
+    clear:both;
+    display:table;
+}
