@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './search/search.component';
-import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatCardModule } from '@angular/material';
 import { DetailComponent } from './detail/detail.component';
 import { AgmCoreModule } from '@agm/core';
 import { ResultsComponent } from './results/results.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +28,9 @@ import { ResultsComponent } from './results/results.component';
     MatButtonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBZMji1ERi5Q0QIim75OSQD6zCQiTQFhbk'
-    })
+    }),
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
