@@ -7,9 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './search/search.component';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatIconModule, MatButtonModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
 import { DetailComponent } from './detail/detail.component';
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
 import { ResultsComponent } from './results/results.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AgmDirectionModule } from 'agm-direction';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,12 +30,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatProgressSpinnerModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBZMji1ERi5Q0QIim75OSQD6zCQiTQFhbk'
+      apiKey: 'AIzaSyDFTKbcSXEN22pUx3zfaabEOGyy7oOZtmI'
     }),
+    AgmDirectionModule,
     MatCardModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
