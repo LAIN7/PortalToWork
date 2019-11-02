@@ -1,5 +1,9 @@
 <div class="container">
-    <form class="userLocation">
+    <div *ngIf="loading">
+        <img src="assets/workforce-2019-logo-mo-jobs-white.png" />
+        <mat-spinner></mat-spinner>
+    </div>
+    <form class="userLocation" *ngIf="!loading">
         <div> 
             <p>Set Location for Job Search</p>
             <button mat-raised-button color="primary" [routerLink]="['/results']">Use My Current Location</button>

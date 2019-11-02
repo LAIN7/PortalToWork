@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JobsService } from '../jobs.service';
 
 @Component({
   selector: 'app-search',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-
-  constructor() { }
+  loading=true;
+  constructor(private jobService: JobsService) { }
 
   ngOnInit() {
+    this.loading = true;
+    this.jobService.getJobs().subscribe((jobs) => {
+      this.loading = false;
+    });
   }
 
 }
