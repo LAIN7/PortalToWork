@@ -1,41 +1,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<div class="container" >
-
-    <div class="headerInfo">
-            <h1>
-                Job Title
-                <button mat-raised-button color="primary">
-                    <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
-                </button>
-            </h1>
-            <h4>Employeer/Company</h4>
-    </div>
-
-    <div class="jobDesc">
-        <p [ngClass]="{'hideDescription': hideDescription}">
-            Job Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis porta tristique. 
-            Duis lacinia nunc porta nisi imperdiet cursus. Fusce facilisis congue lorem, a posuere eros fermentum a. 
-            Nunc a sem eu odio eleifend consquat non in quam. Nunc id leo eget erat laoreet ultricies. Mauris finibus eleifend vestibulum. 
-            Quisque accumsan mollis sapien, ut molestie nunc ullamcorper eget. Pellentesque accumsan nunc bibendum, egestas lectus sed, sodales massa.
-        </p>
-        <button (click)="toggleDescription()" mat-raised-button color="accent">
-            {{hideDescription ? 'More Info' : 'Less Info'}}
-        </button>
-    </div>
-
-    <div class="googleMap">
-        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
-            <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker>
-        </agm-map>
-    </div>
-
-    <div>
-        <p>Salary:</p>
-        <p>Job Type: </p>
-        <p>Minimum Education:</p>
-    </div>
-
-
-    
+<div class="headerInfo">
+        <h1>
+            {{job?.title}}
+            <button mat-raised-button color="primary">
+                <mat-icon aria-hidden="false" aria-label="add to favorites">favorite</mat-icon>
+            </button>
+        </h1>
+        <h4>{{job?.employer?.name}}</h4>
 </div>
+
+<div class="jobDesc">
+    <p [ngClass]="{'hideDescription': hideDescription}">
+        Job Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis porta tristique. 
+        Duis lacinia nunc porta nisi imperdiet cursus. Fusce facilisis congue lorem, a posuere eros fermentum a. 
+        Nunc a sem eu odio eleifend consquat non in quam. Nunc id leo eget erat laoreet ultricies. Mauris finibus eleifend vestibulum. 
+        Quisque accumsan mollis sapien, ut molestie nunc ullamcorper eget. Pellentesque accumsan nunc bibendum, egestas lectus sed, sodales massa.
+    </p>
+    <button (click)="toggleDescription()" mat-raised-button color="accent">
+        {{hideDescription ? 'More Info' : 'Less Info'}}
+    </button>
+</div>
+
+<div class="googleMap">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+        <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker>
+    </agm-map>
+</div>
+
+<div>
+    <p>Salary: {{job?.pay_rate}}</p>
+    <p>Job Type: {{job?.employer?.category}}</p>
+    <p>Minimum Education:</p>
+</div>
+
+
+
