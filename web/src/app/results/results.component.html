@@ -1,6 +1,12 @@
-
-<div id=showResults>
-        <li *ngFor="let result of results">
-            <mat-card>{{result}}</mat-card>
-        </li>
+<div class="container">
+    <h2>{{curLocation}}</h2>
+    <div>
+        <mat-spinner *ngIf="loading"></mat-spinner>
+            <mat-card *ngFor="let result of results">
+            <h5>{{result.title}} <span>{{result.date_expires}}</span></h5>
+            <span class="location" *ngFor="let location of result.locations.data">
+                {{location.name}}
+            </span>
+        </mat-card>
+    </div>
 </div>
