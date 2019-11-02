@@ -1,3 +1,5 @@
+import { Employer } from './employer';
+
 export interface Jobs {
     data: Job[];
 }
@@ -8,6 +10,7 @@ export interface Job{
     date_updated: string;
     date_expires: string;
     employer_id: number;
+    employer: Employer;
     locations: Locations;
     title: string;
     job_id: number;
@@ -25,12 +28,12 @@ export interface Locations {
 }
 
 export interface Location {
-    id: number,
-    name: string,
-    street: string,
-    city: string,
-    state: string,
-    zipcode: string,
-    created_at: string,
-    updated_at: string
+    id: number;
+    name: string;
+    street: string;
+    city: string;
+    state: string;
+    zipcode: string;
+    created_at: string;
+    updated_at: string;
 }

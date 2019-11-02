@@ -33,7 +33,9 @@ export class DetailComponent implements OnInit {
       this.origin = { "lat": position.coords.latitude, "lng": position.coords.longitude };
     });
 
-    this.destination = `${this.job.locations.data[0].street}, ${this.job.locations.data[0].city}, ${this.job.locations.data[0].state} ${this.job.locations.data[0].zipcode}`;
+    if (this.job.locations.data.length > 0) {
+      this.destination = `${this.job.locations.data[0].street}, ${this.job.locations.data[0].city}, ${this.job.locations.data[0].state} ${this.job.locations.data[0].zipcode}`;
+    }
   }
 
   toggleDescription() {

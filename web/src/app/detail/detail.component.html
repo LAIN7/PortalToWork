@@ -21,6 +21,7 @@
     </button>
 </div>
 
+<h1><button mat-raised-button color="accent">Open In Google Maps</button> Address: {{destination}} </h1>
 <div class="googleMap">
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
         <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
