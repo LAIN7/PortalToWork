@@ -19,8 +19,10 @@
         </p>
     </div>
 
-    <div>
-        <p>Map Here:</p>
+    <div id="googleMap">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+            <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker>
+        </agm-map>
     </div>
 
     <div>

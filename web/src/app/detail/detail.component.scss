@@ -9,8 +9,7 @@ h1 {
     }
 }
 
-.clearfix::after{
-    content: "";
-    clear:both;
-    display:table;
+agm-map {
+    height: 300px;
 }
+

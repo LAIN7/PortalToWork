@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-
+  lat = 37.2119519;
+  lng = -93.290407
   constructor() { }
 
   ngOnInit() {
