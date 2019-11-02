@@ -14,6 +14,9 @@ export class DetailComponent implements OnInit {
 
   job: Job;
 
+  origin = 'civil kitchen';
+  destination = 'efactory';
+  
   hideDescription = true;
   constructor(private route: ActivatedRoute, private jobService:JobsService) { }
 
