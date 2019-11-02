@@ -18,6 +18,7 @@ export class DetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private jobService:JobsService) { }
 
   ngOnInit() {
+    window.scroll(0,0);
     this.route.params.subscribe(params => {
       this.jobService.getJobs().subscribe(jobs => {
         const foundJobs = jobs.data.filter(x=>x.id == params.id)
