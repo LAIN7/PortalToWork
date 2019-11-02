@@ -1,3 +1,7 @@
+export interface Jobs {
+    data: Job[];
+}
+
 export interface Job{
     id: number;
     date_posted: string;

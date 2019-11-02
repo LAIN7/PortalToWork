@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Job } from './models/job';
+import { Job, Jobs } from './models/job';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -8,8 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class JobsService {
 
+  baseUrl = 'https://jobs.api.sgf.dev/api/job';
+  apiKey = '9ZGHl8yeQoaSBNUtwSlPaEJ1exTyWsRL7efirwhSlCmtGa1kCWSXgTSutK3Qqya3CchJpf2ANiiqTXP9';
+
   constructor(private http: HttpClient) { }
-  getJobs(): Observable<Job[]>{
-    return this.http.get<Job>("https://jobs.api.sgf.dev/api/job?api_token=9ZGHl8yeQoaSBNUtwSlPaEJ1exTyWsRL7efirwhSlCmtGa1kCWSXgTSutK3Qqya3CchJpf2ANiiqTXP9");
+
+  getJobs(): Observable<Jobs>{
+    return this.http.get<Jobs>(`${this.baseUrl}?api_token=${this.apiKey}`);
   }
 }

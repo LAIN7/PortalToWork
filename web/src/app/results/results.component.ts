@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JobsService } from '../jobs.service';
 
 @Component({
   selector: 'app-results',
@@ -12,9 +13,12 @@ export class ResultsComponent implements OnInit {
     'Another '
   ];
 
-  constructor() { }
+  constructor(private jobService: JobsService) { }
 
   ngOnInit() {
+    this.jobService.getJobs().subscribe((jobs) => {
+      this.results = jobs.data.map(job=>job.title);
+    });
   }
 
 }
