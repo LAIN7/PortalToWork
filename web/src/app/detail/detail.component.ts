@@ -7,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
   lat = 37.2119519;
-  lng = -93.290407
+  lng = -93.290407;
+
+  hideDescription = true;
   constructor() { }
 
   ngOnInit() {
   }
 
+  toggleDescription() {
+    this.hideDescription = !this.hideDescription;
+  }
 }

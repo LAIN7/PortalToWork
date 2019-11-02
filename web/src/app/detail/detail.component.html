@@ -1,6 +1,6 @@
 <div class="container" >
 
-    <div id="headerInfo">
+    <div class="headerInfo">
             <h1>
                 Job Title
                 <button mat-raised-button color="primary">
@@ -10,16 +10,19 @@
             <h4>Employeer/Company</h4>
     </div>
 
-    <div>
-        <p>
+    <div class="jobDesc">
+        <p [ngClass]="{'hideDescription': hideDescription}">
             Job Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis porta tristique. 
             Duis lacinia nunc porta nisi imperdiet cursus. Fusce facilisis congue lorem, a posuere eros fermentum a. 
-            Nunc a sem eu odio eleifend consequat non in quam. Nunc id leo eget erat laoreet ultricies. Mauris finibus eleifend vestibulum. 
+            Nunc a sem eu odio eleifend consquat non in quam. Nunc id leo eget erat laoreet ultricies. Mauris finibus eleifend vestibulum. 
             Quisque accumsan mollis sapien, ut molestie nunc ullamcorper eget. Pellentesque accumsan nunc bibendum, egestas lectus sed, sodales massa.
         </p>
+        <button (click)="toggleDescription()" mat-raised-button color="accent">
+            {{hideDescription ? 'More Info' : 'Less Info'}}
+        </button>
     </div>
 
-    <div id="googleMap">
+    <div class="googleMap">
         <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
             <agm-marker [latitude]="lat" [longitude]="lng" ></agm-marker>
         </agm-map>
