@@ -1,3 +1,8 @@
+@import '../../styles.scss';
+
+
+
+
 .userLocation {
 	text-align: center;
 }
@@ -7,4 +12,15 @@ button {
   
 .locationInput {
   width: 80%;
+}
+
+input[placeholder] {
+	color:#000;
+}
+
+p,input{
+	color:$dark-blue;
+}
+button,.mat-raised-button{
+	background-color:$dark-blue;
 }
