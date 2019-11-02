@@ -1,4 +1,8 @@
-<mat-toolbar color="primary">Portal To Work</mat-toolbar>
+<mat-toolbar color="primary">
+    <span>Portal To Work</span> 
+    <span class="fill-remaining-space"></span>
+    <button class="home" mat-button [routerLink]="['/']"><mat-icon>home</mat-icon></button>
+</mat-toolbar>
 <div class="container">
     <div class="splash" *ngIf="loading">
         <img src="assets/workforce-2019-logo-mo-jobs-white.png" />
