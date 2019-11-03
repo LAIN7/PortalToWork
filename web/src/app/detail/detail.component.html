@@ -16,7 +16,7 @@
 </div>
 
 <div class="googleMap" *ngIf="showMap">
-    <h1><button mat-raised-button color="accent">Open In Google Maps</button> Address: {{destination}} </h1>
+    <h4>{{destination}} (<a href="{{ 'https://www.google.com/maps/place/' + mapsQuery }}">map</a>)</h4>
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16">
         <agm-direction [origin]="origin" [destination]="destination"></agm-direction>
     </agm-map>

@@ -14,6 +14,7 @@ export class DetailComponent implements OnInit {
   showMap: boolean = false;
   origin: any;
   destination = 'efactory';
+  mapsQuery = 'efactory';
   
   hideDescription = true;
   constructor(private route: ActivatedRoute,
@@ -31,6 +32,7 @@ export class DetailComponent implements OnInit {
 
     if (this.job.locations.data.length > 0){
       this.destination = `${this.job.locations.data[0].street}, ${this.job.locations.data[0].city}, ${this.job.locations.data[0].state} ${this.job.locations.data[0].zipcode}`;
+      this.mapsQuery = this.destination.split(" ").join("+")
 
       this.locationService.getLocation((position) => {
         this.origin = { "lat": position.coords.latitude, "lng": position.coords.longitude };
