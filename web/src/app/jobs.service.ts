@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Job, Jobs } from './models/job';
+import { Job, Jobs, Locations } from './models/job';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -21,7 +21,7 @@ export class JobsService {
       return of(this.jobs);
     }
     return this.http.get<Jobs>(`${this.baseUrl}?api_token=${this.apiKey}`).pipe(tap(jobs => {
-      this.jobs = jobs
+      this.jobs = jobs;
       return jobs;
     }));
   }

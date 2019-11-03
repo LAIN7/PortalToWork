@@ -29,15 +29,17 @@ export class DetailComponent implements OnInit {
       });
     })
 
-    if (this.job.locations.data.length > 0) {
+    if (this.job.locations.data.length > 0){
       this.destination = `${this.job.locations.data[0].street}, ${this.job.locations.data[0].city}, ${this.job.locations.data[0].state} ${this.job.locations.data[0].zipcode}`;
 
       this.locationService.getLocation((position) => {
         this.origin = { "lat": position.coords.latitude, "lng": position.coords.longitude };
         this.showMap = true;
       });
+      console.log(this.job.locations.data)
     }
   }
+  
 
   toggleDescription() {
     this.hideDescription = !this.hideDescription;
