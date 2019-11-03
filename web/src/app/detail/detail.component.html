@@ -2,9 +2,7 @@
 <div class="headerInfo">
         <h1>
             {{job?.title}}
-            <button mat-raised-button color="primary">
-                <mat-icon aria-hidden="false" aria-label="add to favorites">favorite</mat-icon>
-            </button>
+            <a mat-raised-button color="primary" href="{{job?.url}}">Apply</a>
         </h1>
         <h4>{{job?.employer?.name}}</h4>
 </div>
