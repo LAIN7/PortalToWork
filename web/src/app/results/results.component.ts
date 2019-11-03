@@ -14,6 +14,7 @@ export class ResultsComponent implements OnInit {
   loading = false;
   origin: any;
   mapOrigin: any;
+  distanceFilter: number = 1.0;
 
   constructor(private jobService: JobsService, private locationService: LocationService) { }
 
@@ -43,11 +44,11 @@ export class ResultsComponent implements OnInit {
     return d * 0.000621371;
   }
 
-  byJobsWithLocations = (job: Job) => {
+  byJobsWithLocations = (job: Job, targetDistance: number = 1.0) => {
     const firstLocation = job.locations.data[0];
     if(firstLocation && firstLocation.lat && firstLocation.lng) {
       const distance = this.getDistance(firstLocation);
-      if(distance > 1.0) {
+      if(distance > targetDistance) {
         return false;
       }
   
@@ -56,11 +57,41 @@ export class ResultsComponent implements OnInit {
 
     return false;    
   }
+
+  getZoom(radius: number){
+    switch(radius) {
+      case 1.0: 
+        return 15;
+      case 5.0: 
+        return 13;
+      case 10.0:
+        return 12;
+      case 20.0:
+        return 11;
+      case 30.0:
+        return 10;
+      default: 
+        return 15;
+    }
+  }
+
+  changeDistance(e: any) {
+    const originalOrigin = { ...this.mapOrigin };
+    const newZoom = this.getZoom(+e.value);
+    this.mapOrigin = undefined;
+
+    this.jobService.getJobs().subscribe((jobs) => {
+      this.results = jobs.data.filter(job => this.byJobsWithLocations(job, +e.value));
+      setTimeout(() => {
+        this.mapOrigin = { lat: originalOrigin.lat, lng: originalOrigin.lng, zoom: newZoom };
+      }, 1)
+    });
+  }
   ngOnInit() {
     this.loading = true;
     this.jobService.getJobs().subscribe((jobs) => {        
       this.locationService.getLocation((position) => {
-        this.mapOrigin = this.origin = { "lat": position.coords.latitude, "lng": position.coords.longitude };
+        this.mapOrigin = this.origin = { lat: position.coords.latitude, lng: position.coords.longitude, zoom: 15 };
         this.results = jobs.data.filter(this.byJobsWithLocations);
       });
       this.loading = false;
@@ -71,7 +102,7 @@ export class ResultsComponent implements OnInit {
     this.mapOrigin = undefined;
 
     setTimeout(() => {
-      this.mapOrigin = { lat: +location.lat, lng: +location.lng };
+      this.mapOrigin = { lat: +location.lat, lng: +location.lng, zoom: 16 };
     }, 1)
   }
 

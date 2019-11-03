@@ -1,18 +1,25 @@
 <h2>{{curLocation}}</h2>
+<ng-container *ngIf="!loading">
+    <div class="googleMap">
+        <agm-map *ngIf="mapOrigin" [latitude]="mapOrigin.lat" [longitude]="mapOrigin.lng" [zoom]="mapOrigin.zoom">
+            <agm-marker 
+            color="blue"
+            [latitude]="mapOrigin.lat"
+            [longitude]="mapOrigin.lng"></agm-marker>
 
-<div class="googleMap">
-    <agm-map *ngIf="mapOrigin" [latitude]="mapOrigin.lat" [longitude]="mapOrigin.lng" [zoom]="16">
-        <agm-marker 
-        color="blue"
-        [latitude]="mapOrigin.lat"
-        [longitude]="mapOrigin.lng"></agm-marker>
-
-        <agm-marker *ngFor="let result of results"
-        [latitude]="result.locations?.data[0]?.lat"
-        [longitude]="result.locations?.data[0]?.lng"></agm-marker>
-    </agm-map>
-</div>
-
+            <agm-marker *ngFor="let result of results"
+            [latitude]="result.locations?.data[0]?.lat"
+            [longitude]="result.locations?.data[0]?.lng"></agm-marker>
+        </agm-map>
+    </div>
+    <mat-button-toggle-group name="distanceFilter" (change)="changeDistance($event)" value="1.0" aria-label="Distance Filter">
+        <mat-button-toggle value="1.0">1 mi</mat-button-toggle>
+        <mat-button-toggle value="5.0">5 mi</mat-button-toggle>
+        <mat-button-toggle value="10.0">10 mi</mat-button-toggle>
+        <mat-button-toggle value="20.0">20 mi</mat-button-toggle>
+        <mat-button-toggle value="30.0">30 mi</mat-button-toggle>
+    </mat-button-toggle-group>
+</ng-container>
 <div>
     <mat-spinner *ngIf="loading"></mat-spinner>
     <mat-card *ngFor="let result of results" (click)="locateMapHere(result.locations.data[0])">
