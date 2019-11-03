@@ -36,6 +36,8 @@ export interface Location {
     city: string;
     state: string;
     zipcode: string;
+    lat: number;
+    lng: number;
     created_at: string;
     updated_at: string;
 }

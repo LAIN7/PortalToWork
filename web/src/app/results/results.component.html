@@ -1,8 +1,17 @@
 <h2>{{curLocation}}</h2>
+
+<div class="googleMap">
+    <agm-map *ngIf="origin" [latitude]="origin.lat" [longitude]="origin.lng" [zoom]="16">
+        <agm-marker *ngFor="let result of results"
+        [latitude]="result.locations?.data[0]?.lat"
+        [longitude]="result.locations?.data[0]?.lng"></agm-marker>
+    </agm-map>
+</div>
+
 <div>
     <mat-spinner *ngIf="loading"></mat-spinner>
-    <mat-card *ngFor="let result of results" [routerLink]="['/detail', result.id]">
-        <h5>{{result.title}} <span>{{result.date_expires}}</span></h5>
+    <mat-card *ngFor="let result of results" (click)="locateMapHere(result.locations.data[0])">
+        <h5><a [routerLink]="['/detail', result.id]">{{result.title}}</a> <span>{{result.date_expires}}</span></h5>
         <span class="location" *ngFor="let location of result.locations.data">
             {{location.name}}
         </span>
