@@ -15,13 +15,16 @@ export class ResultsComponent implements OnInit {
   origin: any;
   constructor(private jobService: JobsService, private locationService: LocationService) { }
 
+  byJobsWithLocations(job: Job): boolean {
+    return job.locations.data.length > 0 && !!job.locations.data[0].lat && !!job.locations.data[0].lng;
+  }
   ngOnInit() {
     this.locationService.getLocation((position) => {
       this.origin = { "lat": position.coords.latitude, "lng": position.coords.longitude };
     });
     this.loading = true;
     this.jobService.getJobs().subscribe((jobs) => {
-      this.results = jobs.data;
+      this.results = jobs.data.filter(this.byJobsWithLocations);
       this.loading = false;
     });
   }
