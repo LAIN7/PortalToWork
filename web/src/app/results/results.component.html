@@ -1,4 +1,3 @@
-<h2>{{curLocation}}</h2>
 <ng-container *ngIf="!loading">
     <div class="googleMap">
         <agm-map *ngIf="mapOrigin" [latitude]="mapOrigin.lat" [longitude]="mapOrigin.lng" [zoom]="mapOrigin.zoom">

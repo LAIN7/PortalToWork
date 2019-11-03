@@ -5,8 +5,8 @@
 </mat-toolbar>
 <div class="container">
     <div class="splash" *ngIf="loading">
-        <img src="assets/workforce-2019-logo-mo-jobs-white.png" />
-        <mat-spinner></mat-spinner>
+        <img src="assets/loading-5.gif" />
+        <img class="splash-background" src="assets/Splash_screen.png" />
     </div>  
     <router-outlet *ngIf="!loading"></router-outlet>
 </div>
