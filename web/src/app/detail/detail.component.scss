@@ -18,11 +18,16 @@ h1 {
 agm-map {
     height: 300px;
 }
-
+.googleMap{
+    margin-top: 200px;
+}
 @media only screen and (min-width:768px){
     .jobDesc >button{
         display:none;
     }
-
-
+    .jobDesc{
+        .hideDescription{
+            overflow:visible;
+        }
+    }
 }
